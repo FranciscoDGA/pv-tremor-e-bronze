@@ -11,16 +11,19 @@ Site estático (HTML/CSS/JS puro, sem build), pronto para deploy direto na Verce
 - `assets/favicon.svg` — ícone do site.
 - `vercel.json` — cache dos assets e URLs limpas.
 
+## Checkout
+
+Todos os botões de compra apontam para `https://pay.hotmart.com/T106610001N`. Todo o processo de pagamento, entrega e reembolso é feito pela Hotmart.
+
 ## Antes de publicar
 
-1. Substitua `#COLE_AQUI_O_LINK_HOTMART` (3 ocorrências em `index.html`) pelo link real de checkout da Hotmart.
-2. Ajuste `og:image` e `canonical` em `index.html` para o domínio final, se for diferente de `tremorebronze.com.br`.
+Ajuste `og:image` e `canonical` em `index.html` para o domínio final, se for diferente de `tremorebronze.com.br`.
 
 ## Deploy na Vercel
 
 1. Acesse [vercel.com](https://vercel.com) e clique em **Add New → Project**.
-2. Importe este repositório do GitHub (`FranciscoDGA/pv-tremor-e-ebroze`).
+2. Importe este repositório do GitHub (`FranciscoDGA/pv-tremor-e-bronze`).
 3. Framework preset: **Other** (site estático) — nenhuma configuração de build é necessária.
 4. Clique em **Deploy**.
 
-Qualquer novo push na branch principal atualiza o site automaticamente.
+Qualquer novo push na branch `main` atualiza o site automaticamente.
