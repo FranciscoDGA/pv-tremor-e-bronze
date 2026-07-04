@@ -144,6 +144,24 @@
     letter-spacing:.06em; font-size:17px; color:var(--cream);
     white-space:nowrap;
   }
+  @media (max-width:640px){ .mini-nav{ display:none } }
+
+  /* ============ MOBILE STICKY CTA ============ */
+  .mobile-cta{
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:50;
+    align-items:center; justify-content:space-between; gap:14px;
+    padding:12px 20px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(21,17,13,.94); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    transform:translateY(100%); transition:transform .35s var(--ease);
+  }
+  .mobile-cta.visible{ transform:translateY(0); }
+  .mobile-cta-price{ font-family:var(--serif-d); font-weight:600; font-size:19px; color:var(--cream); line-height:1.15; }
+  .mobile-cta-price small{ display:block; font-size:10.5px; color:var(--stone-dk); font-weight:400; letter-spacing:.02em; }
+  @media (max-width:640px){
+    .mobile-cta{ display:flex; }
+    body{ padding-bottom:78px; }
+  }
 
   /* ============ HERO ============ */
   .hero{ padding:clamp(96px,10vw,120px) 0 clamp(72px,8vw,96px); overflow:hidden; }
@@ -170,6 +188,7 @@
   }
   @media (max-width:900px){ .trust-row{justify-content:center} }
   .trust-row span{ display:inline-flex; align-items:center; gap:7px }
+  .trust-row svg{ color:var(--bronze-lt); flex-shrink:0 }
 
   .hero-art{ position:relative; display:flex; justify-content:center; }
   .hero-art .frame{
@@ -301,6 +320,11 @@
   </div>
 </header>
 
+<div class="mobile-cta" id="mobileCta">
+  <span class="mobile-cta-price">R$ 29,90<small>PDF · acesso imediato</small></span>
+  <a href="https://pay.hotmart.com/T106610001N" class="btn btn-sm">Comprar agora →</a>
+</div>
+
 <!-- ===================== HERO ===================== -->
 <section class="hero">
   <div class="gatebars"></div>
@@ -321,15 +345,15 @@
         </div>
         <a href="https://pay.hotmart.com/T106610001N" class="btn">Quero meu exemplar agora &nbsp;→</a>
         <div class="trust-row">
-          <span>&#128274; Pagamento seguro via Hotmart</span>
-          <span>&#9889; Acesso imediato</span>
-          <span>&#10003; Garantia de 7 dias</span>
+          <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Pagamento seguro via Hotmart</span>
+          <span><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-13h-6l1-7z"/></svg> Acesso imediato</span>
+          <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Garantia de 7 dias</span>
         </div>
       </div>
       <div class="hero-art">
         <div class="frame">
           <div class="glow"></div>
-          <img src="/assets/book-cover.png" alt="Capa do livro Tremor e Bronze, de Pr Francisco Gomes" width="1856" height="2312">
+          <img src="/assets/book-cover.png" alt="Capa do livro Tremor e Bronze, de Pr Francisco Gomes" width="1856" height="2312" fetchpriority="high" decoding="async">
         </div>
       </div>
     </div>
@@ -491,9 +515,9 @@
     </div>
     <a href="https://pay.hotmart.com/T106610001N" class="btn">Quero meu exemplar agora &nbsp;→</a>
     <div class="trust-row" style="justify-content:center; margin-top:24px;">
-      <span>&#128274; Pagamento seguro via Hotmart</span>
-      <span>&#9889; Acesso imediato</span>
-      <span>&#10003; Garantia de 7 dias</span>
+      <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Pagamento seguro via Hotmart</span>
+      <span><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-13h-6l1-7z"/></svg> Acesso imediato</span>
+      <span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Garantia de 7 dias</span>
     </div>
   </div>
 </section>
@@ -507,16 +531,19 @@
 
 <script>
 (function(){
-  // sticky mini nav
+  // sticky mini nav + mobile sticky CTA
   var nav = document.getElementById('miniNav');
+  var mobileCta = document.getElementById('mobileCta');
   var hero = document.querySelector('.hero');
-  if (nav && hero) {
+  if (hero) {
     var threshold = hero.offsetHeight * 0.6;
     var ticking = false;
     window.addEventListener('scroll', function(){
       if (!ticking) {
         window.requestAnimationFrame(function(){
-          nav.classList.toggle('visible', window.scrollY > threshold);
+          var past = window.scrollY > threshold;
+          if (nav) nav.classList.toggle('visible', past);
+          if (mobileCta) mobileCta.classList.toggle('visible', past);
           ticking = false;
         });
         ticking = true;
