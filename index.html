@@ -6,6 +6,9 @@
 <title>Tremor e Bronze — Quando a fé não tira o medo | Editora Graça</title>
 <meta name="description" content="Um devocional sobre a culpa de sentir medo, a partir de Davi em Gate e do Getsêmani. Por Pr Francisco Gomes.">
 <meta name="theme-color" content="#15110d">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <link rel="canonical" href="https://tremorebronze.com.br/">
 
 <!-- Open Graph / social preview -->
@@ -228,25 +231,32 @@
 
   /* ============ URGENCY TIMER ============ */
   .urgency-bar{
-    background:linear-gradient(90deg, var(--bronze-dk), var(--bronze), var(--bronze-dk));
-    padding:18px 24px; text-align:center;
+    background:linear-gradient(90deg, #5a3d1a, var(--bronze-lt), #5a3d1a);
+    padding:22px 24px; text-align:center;
+    box-shadow: 0 4px 20px rgba(169,130,74,.4);
   }
   .urgency-bar p{
-    margin:0; font-family:var(--serif-d); font-size:18px; font-weight:600;
+    margin:0; font-family:var(--serif-d); font-size:20px; font-weight:700;
     color:var(--ink); letter-spacing:.02em;
   }
-  .urgency-bar .timer{ font-weight:700; font-size:22px; }
+  .urgency-bar .timer{
+    font-weight:800; font-size:26px;
+    background:var(--ink); color:var(--bronze-lt);
+    padding:4px 14px; border-radius:5px;
+    display:inline-block; margin-left:6px;
+  }
 
   /* ============ SALES COUNTER ============ */
   .sales-counter{
     display:inline-flex; align-items:center; gap:10px;
-    background:linear-gradient(135deg, rgba(169,130,74,.15), rgba(169,130,74,.08));
-    border:1px solid var(--bronze); border-radius:5px;
-    padding:12px 20px; margin-top:20px;
-    font-size:15px; color:var(--cream-2);
+    background:linear-gradient(135deg, rgba(169,130,74,.2), rgba(169,130,74,.1));
+    border:1.5px solid var(--bronze); border-radius:5px;
+    padding:14px 22px; margin-top:20px;
+    font-size:16px; color:var(--cream);
+    box-shadow: 0 2px 12px rgba(169,130,74,.2);
   }
   .sales-counter svg{ color:var(--bronze-lt); flex-shrink:0 }
-  .sales-counter strong{ color:var(--bronze-lt); font-weight:700; font-size:16px; }
+  .sales-counter strong{ color:var(--bronze-lt); font-weight:700; font-size:17px; }
 
   /* ============ BONUS ============ */
   .bonus-sec{ background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -318,7 +328,7 @@
     width:140px; height:140px; border-radius:50%; margin:0 auto;
     border:1px solid var(--bronze);
     object-fit:cover; object-position:top center;
-    transform:scale(.85);
+    transform:scale(.72);
   }
   .autor-grid h3{ font-size:23px; margin-bottom:4px; }
   .autor-grid .role{ font-family:var(--serif-d); font-style:italic; color:var(--bronze-lt); font-size:15px; margin-bottom:16px; display:block; }
@@ -327,12 +337,12 @@
   /* ============ GARANTIA ============ */
   .garantia{ text-align:center; }
   .selo{
-    width:112px; height:112px; border-radius:50%; margin:0 auto 28px;
-    background:linear-gradient(135deg, var(--bronze-dk), var(--bronze));
+    width:120px; height:120px; border-radius:50%; margin:0 auto 28px;
+    background:linear-gradient(135deg, var(--bronze-dk), var(--bronze-lt));
     display:flex; align-items:center; justify-content:center;
-    font-family:var(--serif-d); color:var(--cream); font-size:12.5px; letter-spacing:.1em; text-align:center;
+    font-family:var(--serif-d); color:var(--ink); font-size:13px; font-weight:700; letter-spacing:.1em; text-align:center;
     line-height:1.4; padding:10px;
-    box-shadow: 0 8px 24px rgba(169,130,74,.35);
+    box-shadow: 0 8px 30px rgba(169,130,74,.45);
   }
   .garantia h2{ font-size:calc(var(--fs-h2) - .1rem); max-width:20ch; margin:0 auto; }
   .garantia p{ max-width:56ch; margin:20px auto 0; color:var(--stone); font-size:17px; }
