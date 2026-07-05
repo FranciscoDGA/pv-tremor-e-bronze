@@ -95,7 +95,7 @@
     display:inline-flex; align-items:center; gap:10px;
     font-family:var(--serif-d); font-weight:600; font-size:19px;
     letter-spacing:.02em; color:var(--ink); background:linear-gradient(180deg,var(--bronze-lt),var(--bronze));
-    padding:18px 38px; border-radius:2px; text-decoration:none;
+    padding:18px 38px; border-radius:5px; text-decoration:none;
     box-shadow:0 14px 30px -10px rgba(169,130,74,.5), inset 0 1px 0 rgba(255,255,255,.3);
     border:1px solid var(--bronze-dk);
     transition:transform .25s var(--ease), box-shadow .25s var(--ease);
@@ -103,7 +103,7 @@
   }
   .btn:hover{ transform:translateY(-2px); box-shadow:0 20px 40px -12px rgba(169,130,74,.65), inset 0 1px 0 rgba(255,255,255,.35); }
   .btn:active{ transform:translateY(0); }
-  .btn-sm{ padding:11px 22px; font-size:15px; }
+  .btn-sm{ padding:11px 22px; font-size:15px; border-radius:5px; }
   .btn-ghost{
     display:inline-flex; align-items:center; gap:8px;
     font-family:var(--serif-d); font-style:italic; font-size:16px;
@@ -316,7 +316,7 @@
   .autor-photo{
     width:140px; height:140px; border-radius:50%; margin:0 auto;
     border:1px solid var(--bronze);
-    object-fit:cover;
+    object-fit:cover; object-position:top center;
   }
   .autor-grid h3{ font-size:23px; margin-bottom:4px; }
   .autor-grid .role{ font-family:var(--serif-d); font-style:italic; color:var(--bronze-lt); font-size:15px; margin-bottom:16px; display:block; }
@@ -326,9 +326,11 @@
   .garantia{ text-align:center; }
   .selo{
     width:112px; height:112px; border-radius:50%; margin:0 auto 28px;
-    border:1.5px solid var(--bronze); display:flex; align-items:center; justify-content:center;
-    font-family:var(--serif-d); color:var(--bronze-lt); font-size:12.5px; letter-spacing:.1em; text-align:center;
+    background:linear-gradient(135deg, var(--bronze-dk), var(--bronze));
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif-d); color:var(--cream); font-size:12.5px; letter-spacing:.1em; text-align:center;
     line-height:1.4; padding:10px;
+    box-shadow: 0 8px 24px rgba(169,130,74,.35);
   }
   .garantia h2{ font-size:calc(var(--fs-h2) - .1rem); max-width:20ch; margin:0 auto; }
   .garantia p{ max-width:56ch; margin:20px auto 0; color:var(--stone); font-size:17px; }
